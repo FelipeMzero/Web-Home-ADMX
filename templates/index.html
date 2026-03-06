@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Interno - Instituto Mais Saúde</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <img src="https://www.institutomaissaude.org.br/wp-content/uploads/2024/04/cropped-IMS_logo_horizontal_principal_RGB-1-300x107.png" 
+                 alt="Instituto Mais Saúde" class="logo-img">
+            <nav>
+                <a href="https://institutomaissaude.gupy.io/" target="_blank" class="nav-link-talentos">
+                    <i class="fas fa-user-tie"></i> TRABALHE CONOSCO
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <div class="institute-card-center-small">
+                <div class="institute-content">
+                    <h2>PÁGINA DO INSTITUTO MAIS SAÚDE</h2>
+                    <p>Acesse o site institucional para notícias e transparência.</p>
+                    <a href="https://www.institutomaissaude.org.br/" target="_blank" class="btn-institute">
+                        VISITAR SITE <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="dashboard-grid">
+            <section class="section-area-dash">
+                <h2><i class="fas fa-graduation-cap"></i> Educação Permanente</h2>
+                <a href="#" class="dash-card card-moodle">
+                    <div class="dash-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <div class="dash-text">
+                        <h3>PLATAFORMA MOODLE</h3>
+                        <p>Acesso em breve: cursos e treinamentos.</p>
+                    </div>
+                    <div class="dash-action badge-moodle">EM BREVE</div>
+                </a>
+            </section>
+
+            <section class="section-area-dash">
+                <h2><i class="fas fa-bullhorn"></i> Informativos</h2>
+                <div class="dash-card card-info">
+                    <div class="dash-icon"><i class="fas fa-image"></i></div>
+                    <div class="dash-text">
+                        <h3>TREINAMENTOS HRMJ</h3>
+                        <p>Clique ao lado para ver o informativo atual.</p>
+                    </div>
+                    <button onclick="abrirImagemTreinamento()" class="dash-action btn-veja">VEJA <i class="fas fa-eye"></i></button>
+                </div>
+            </section>
+        </div>
+
+        <section class="section-area-systems">
+            <h2><i class="fas fa-th-large"></i> Sistemas e Acesso Rápido</h2>
+            <div class="links-grid">
+                <a href="https://extranetrh.com/" target="_blank" class="link-item">
+                    <i class="fas fa-money-check-alt"></i><span>Contracheque Online</span>
+                </a>
+                <a href="https://www.rhid.com.br/v2/#/login" target="_blank" class="link-item">
+                    <i class="fas fa-clock"></i><span>Ponto Online (RHID) Coordenadores Administrativo</span>
+                </a>
+                <a href="http://glpi.hrmj.pa.org" target="_blank" class="link-item">
+                    <i class="fas fa-headset"></i><span>GLPI</span>
+                </a>
+                <a href="https://tasy.sistemasims.org.br/#/login" target="_blank" class="link-item">
+                    <i class="fas fa-hospital"></i><span>Tasy</span>
+                </a>
+                <a href="https://orbis.neovero.com/login" target="_blank" class="link-item">
+                    <i class="fas fa-microchip"></i><span>Neovero</span>
+                </a>
+                <a href="https://outlook.office.com/mail/" target="_blank" class="link-item">
+                    <i class="fa-solid fa-envelope"></i><span>Outlook</span>
+                </a>
+                <a href="http://10.172.0.60:9092" target="_blank" class="link-item">
+                    <i class="fas fa-calendar-check"></i><span>Reserva: Auditório</span>
+                </a>
+                <a href="http://10.172.0.60:9091" target="_blank" class="link-item">
+                    <i class="fas fa-calendar-day"></i><span>Reserva: Diretoria</span>
+                </a>
+                <a href="http://10.172.0.60:5000" target="_blank" class="link-item">
+                    <i class="fas fa-tools"></i><span>Gestão TI</span>
+                </a>
+                <a href="https://osimsbi.ddns.net:8443/sa/apps/dms/GlobalRepositoryApplication.jsp" target="_blank" class="link-item">
+                    <i class="fas fa-clipboard-check"></i><span>Interact - NQSP</span>
+                </a>
+                <a href="javascript:void(0)" class="link-item" onclick="abrirTelefonia()">
+                    <i class="fas fa-phone-alt"></i><span>Telefonia (Ramais)</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Instituto Mais Saúde - HRMJ | Tecnologia da Informação</p>
+    </footer>
+
+    <div id="modalImagem" class="modal-img-overlay" onclick="fecharImagemTreinamento()">
+        <div class="modal-image-container">
+            <span class="close-image">&times;</span>
+            <img src="{{ url_for('static', filename='images/treinamento.jpg') }}" alt="Informativo" class="full-training-img">
+        </div>
+    </div>
+
+    <div id="modalTelefonia" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharTelefonia()">&times;</span>
+            <h3 class="modal-title">Ramais Internos</h3>
+            <div class="table-scroll">
+                <table id="tabelaRamais"><tbody id="corpoTabela"></tbody></table>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

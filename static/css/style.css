@@ -1,0 +1,175 @@
+/* --- VARIÁVEIS DE CORES DO INSTITUTO MAIS SAÚDE --- */
+:root {
+    --primary: #8a1b3d; /* Vinho IMS */
+    --secondary: #333333;
+    --bg: #f4f4f4;
+    --white: #ffffff;
+    --navbar-dark: #444444; 
+    --shadow: 0 4px 10px rgba(0,0,0,0.15);
+    --moodle: #f29100; /* Cor Laranja Moodle */
+}
+
+/* --- CONFIGURAÇÕES GERAIS --- */
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    margin: 0;
+    color: var(--secondary);
+    overflow-x: hidden;
+}
+.container { width: 95%; max-width: 1240px; margin: auto; }
+
+/* --- NAVBAR (LOGO ESQUERDA | TALENTOS DIREITA) --- */
+header {
+    background-color: var(--navbar-dark); 
+    padding: 12px 0;
+    border-bottom: 5px solid var(--primary); 
+    box-shadow: var(--shadow);
+    position: relative; 
+    z-index: 100;
+}
+header .container.header-flex { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+.logo-img { height: 65px; filter: drop-shadow(0px 0px 1px white); }
+
+.nav-link-talentos {
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 10px 18px;
+    border-radius: 6px;
+    background: var(--primary);
+    transition: 0.3s;
+    border-bottom: 3px solid rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.nav-link-talentos:hover { background: #6b142f; transform: translateY(-2px); }
+
+/* --- CARD CENTRALIZADO (PÁGINA DO INSTITUTO) --- */
+.hero-section { margin: 20px 0; display: flex; justify-content: center; }
+.institute-card-center-small {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    max-width: 450px;
+    width: 90%;
+    border-top: 5px solid var(--primary);
+}
+.institute-content h2 { border: none !important; margin: 0 0 8px 0 !important; font-size: 1.3rem; color: var(--primary); font-weight: 800; }
+.institute-content p { color: #666; font-size: 0.85rem; margin-bottom: 15px; }
+.btn-institute {
+    display: inline-block; background: var(--primary); color: white; padding: 10px 20px;
+    text-decoration: none; border-radius: 6px; font-weight: bold; border-bottom: 3px solid #6b142f;
+}
+
+/* --- DASHBOARD GRID (EDUCAÇÃO + INFORMATIVOS) --- */
+.dashboard-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    margin-top: 10px; 
+    align-items: stretch;
+}
+
+.dash-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow);
+    border: 1px solid #eee;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.card-moodle { text-decoration: none; border-left: 8px solid var(--moodle); }
+.card-info { border-left: 8px solid var(--primary); }
+
+.dash-icon { font-size: 2.2rem; margin-right: 20px; flex-shrink: 0; }
+.card-moodle .dash-icon { color: var(--moodle); }
+.card-info .dash-icon { color: var(--primary); }
+
+.dash-text { flex-grow: 1; }
+.dash-text h3 { margin: 0; color: var(--secondary); font-size: 1.1rem; font-weight: 800; }
+.dash-text p { margin: 3px 0 0; color: #666; font-size: 0.85rem; }
+
+.dash-action {
+    flex-shrink: 0;
+    margin-left: 15px;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.75rem;
+    border-bottom: 3px solid rgba(0,0,0,0.2);
+}
+.badge-moodle { background: var(--moodle); color: white; }
+.btn-veja { background: var(--primary); color: white; border: none; cursor: pointer; }
+
+/* --- SEÇÃO DE SISTEMAS (CORREÇÃO DE ESPAÇAMENTO E ALINHAMENTO) --- */
+.section-area-systems {
+    margin-top: 80px; /* ESPAÇO LARGO ENTRE CARDS E SISTEMAS */
+}
+
+h2 { color: var(--primary); font-size: 1.4rem; margin: 0 0 25px 0; border-left: 6px solid var(--primary); padding-left: 15px; }
+
+.links-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+    gap: 20px; 
+    margin-bottom: 50px;
+}
+
+.link-item {
+    background: white; 
+    padding: 25px 15px; 
+    text-align: center; 
+    text-decoration: none;
+    color: var(--primary); 
+    border-radius: 12px; 
+    box-shadow: var(--shadow);
+    border: 1px solid #ddd;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 15px;
+    min-height: 160px; /* GARANTE QUE TODOS OS CARDS TENHAM O MESMO TAMANHO */
+    transition: 0.3s;
+}
+.link-item:hover { transform: translateY(-5px); background-color: #fdf2f5; border-color: var(--primary); }
+.link-item i { font-size: 3rem; }
+.link-item span { color: #333; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; line-height: 1.3; }
+
+/* --- MODAIS --- */
+.modal, .modal-img-overlay { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); }
+.modal-content { background: white; margin: 5% auto; padding: 30px; width: 90%; max-width: 650px; border-radius: 15px; position: relative; }
+.modal-image-container { max-width: 90%; margin: 2% auto; position: relative; display: flex; justify-content: center; }
+.full-training-img { max-width: 100%; max-height: 90vh; border-radius: 10px; border: 5px solid white; box-shadow: 0 0 20px black; }
+.close, .close-image { position: absolute; right: 20px; top: 15px; font-size: 35px; color: #333; cursor: pointer; }
+.close-image { color: white; top: -10px; right: -40px; }
+.table-scroll { max-height: 400px; overflow-y: auto; }
+table { width: 100%; border-collapse: collapse; }
+td { padding: 12px; border-bottom: 1px solid #eee; }
+
+/* --- RODAPÉ --- */
+.main-footer { text-align: center; padding: 40px 0; color: #888; border-top: 1px solid #ddd; margin-top: 50px; }
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 850px) {
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .section-area-systems { margin-top: 40px; }
+    .links-grid { grid-template-columns: repeat(2, 1fr); }
+    .dash-card { flex-direction: column; text-align: center; gap: 15px; }
+    .dash-icon { margin: 0; }
+    .dash-action { margin: 0; width: 100%; }
+}
