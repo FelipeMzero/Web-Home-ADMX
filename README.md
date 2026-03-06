@@ -43,7 +43,7 @@ Para rodar a aplicação Flask:
     ```bash
     python app.py
     ```
-    *Acesse via: `http://IP_DO_SERVIDOR:5000`*.
+    *Acesse via: `http://IP_DO_SERVIDOR:9000`*.
 
 ---
 
